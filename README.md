@@ -9,6 +9,10 @@
 
 Welcome to the Emotion Diary project! This Python application allows users to record their daily memories and interact with them through a chat interface powered by GenAI. The project leverages OpenAI's language models (LLM) for natural language processing tasks, and utilizes Streamlit for creating an interactive dashboard.
 
+<img src="llm_diary_first_page.png" alt="Exemplo image">
+<img src="llm_diary_dashboard_part_1.png" alt="Exemplo image">
+<img src="llm_diary_dashboard_part_2.png" alt="Exemplo image">
+
 ## Features
 
 - **Recording Memories**: Users can log their daily memories, including emotions, activities, and interactions.

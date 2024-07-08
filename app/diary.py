@@ -1,9 +1,9 @@
 import pandas as pd
 from dotenv import load_dotenv
 import streamlit as st
-from pdf import CreateDiary
+from src.pdf import CreateDiary
 from datetime import datetime
-from nlp import get_emotions_from_text, get_labels_by_category,add_remaining_ner_labels
+from src.nlp import get_emotions_from_text, get_labels_by_category,add_remaining_ner_labels
 import os
 
 load_dotenv()

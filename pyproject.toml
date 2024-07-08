@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "llm-diary"
-version = "0.1.0"
+version = "0.1.1"
 description = "Keep track of your daily routine and monitor your emotions over time with our intuitive diary app."
 authors = [
   { name = "arthur" },

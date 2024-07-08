@@ -1,10 +1,9 @@
 import plotly.graph_objects as go
-import pandas as pd
 import streamlit as st
 from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
 import plotly.express as px
-from nlp import add_remaining_ner_labels
+from src.nlp import add_remaining_ner_labels
 
 def plot_filtered_df(df, category):
   df = df[df['type'] == category]

@@ -1,15 +1,12 @@
-import streamlit as st
-from prompts import new_prompt, instruction_str, context, instruction_str_ner
+from src.prompts import new_prompt, instruction_str, context, instruction_str_ner
 from llama_index.core.tools import QueryEngineTool, ToolMetadata
 from llama_index.core.agent import ReActAgent
 from llama_index.llms.openai import OpenAI
-from llamaindex_rag import query_engine
+from src.llamaindex_rag import query_engine
 from llama_index.experimental.query_engine import PandasQueryEngine
-from plots import *
-import pandas as pd
+from src.plots import *
 import os
-from nlp import *
-
+from src.nlp import *
 
 st.set_page_config(
     page_title="Hello",

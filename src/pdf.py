@@ -107,10 +107,3 @@ class CreateDiary:
         os.rename(old_path, new_path)
         print(f"Renamed '{old_filename}' to '{new_filename}' in '{directory}'")
 
-
-def is_folder_empty(directory):
-    # List the entries in the directory
-    entries = os.listdir(directory)
-
-    # Check if the list is empty
-    return len(entries) == 0

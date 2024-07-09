@@ -9,6 +9,18 @@ import os
 load_dotenv()
 
 def save_df(df, folder, filename):
+    """
+    Saves a DataFrame to a CSV file within a specified folder. If a CSV file with the same name already exists,
+    it appends the new DataFrame to the existing one.
+
+    Args:
+        df (pd.DataFrame): The DataFrame to be saved.
+        folder (str): The folder where the CSV file will be saved.
+        filename (str): The name of the CSV file (without the .csv extension).
+
+    Returns:
+        None
+    """
     df_path = os.path.join(base_dir, 'data', folder).replace('\\', '/')
     if create_diary.is_folder_empty(df_path):
         df.to_csv(f"data/{folder}/{filename}.csv", index=False)
@@ -18,10 +30,29 @@ def save_df(df, folder, filename):
         stored_df.to_csv(f"data/{folder}/{filename}.csv", index=False)
 
 def clear_text():
+    """
+    Clears the text input fields in the Streamlit session state for diary entries, resetting the fields
+    for highlights, work, family, and friends.
+    """
     st.session_state["highlights"] = ""
     st.session_state["work"] = ""
     st.session_state["family"] = ""
     st.session_state["friends"] = ""
+def transforming_text(question, text):
+    """
+    Transforms the given text by prepending a formatted date and combining it with a question.
+
+    Args:
+        question (str): The question to be prepended to the text.
+        text (str): The main text of the diary entry.
+
+    Returns:
+        str: The transformed text, starting with the date and question, followed by the main text.
+    """
+    starting_sentence = f'On {current_month_name} {current_day}, {current_year},'
+    diary_text = starting_sentence + '' + text
+    diary_text = "\n\n".join([question, diary_text])
+    return diary_text
 
 if __name__ == '__main__':
     ## INTRODUCTION
@@ -64,12 +95,6 @@ if __name__ == '__main__':
     current_day = selected_date.day
     current_month_name = selected_date.strftime("%B")
     current_year = selected_date.year
-
-    def transforming_text(question, text):
-        starting_sentence = f'On {current_month_name} {current_day}, {current_year},'
-        diary_text = starting_sentence + '' + text
-        diary_text = "\n\n".join([question, diary_text])
-        return diary_text
 
 
     highlights_txt_qa = transforming_text(q1, highlights_txt)
